@@ -1,0 +1,66 @@
+<script 
+src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js">
+</script>
+
+<script type="text/discourse-plugin" version="0.8.18">
+//------------------------------------------
+// Fire script on topic pages
+//------------------------------------------
+api.onPageChange(url => {
+	d_slick = SlickGallery();
+	if (url.match(/^\/t\//)) {
+		SlickGallery()
+	} else {
+		$(document).unbind("ajaxSuccess", d_slick);
+	}
+});
+
+//------------------------------------------
+// Initilize Slick Carousel
+//------------------------------------------
+function SlickGallery() {
+	$(document).ajaxSuccess(function() {
+		var $d_tsc = $('#topic div[data-theme-slick="1"]').not(".slick-initialized");
+		$d_tsc
+		    .slick({
+				dots: true,
+				infinite: true,
+				centerMode: true,
+                mobileFirst: true,
+				slide: ".lightbox-wrapper",
+				speed: 200,
+				fade: true,
+				cssEase: "linear"
+			});
+	});
+}
+
+//------------------------------------------
+// Add a button to the composer toolbar
+//------------------------------------------
+api.onToolbarCreate(function(toolbar) {
+	toolbar.addButton({
+		trimLeading: true,
+		id: "SlickGallery",
+		group: "insertions",
+		icon: "picture-o",
+		title: "slick_gallery_button",
+		perform: function perform(e) {
+			return e.applySurround(
+				'<div data-theme-slick="1">\n\n',
+				"\n\n</div>",
+				"slick_add_images_prompt"
+			);
+		}
+	});
+});
+
+//------------------------------------------
+// I18n Translations
+//------------------------------------------
+I18n.translations.en.js.composer.slick_add_images_prompt =
+"Upload gallery images";
+I18n.translations.en.js.slick_gallery_button =
+"Slideshow Image Gallery";
+
+</script>
