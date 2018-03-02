@@ -32,19 +32,19 @@
 //------------------------------------------
 // Variables
 //------------------------------------------
-$slick-meta-background:  rgba(black, 0.8)    !default;
-$slick-arrow-background: rgba(black, 0.8)    !default;
-$slick-background: black                     !default;
+$slick-meta-background: rgba(black, 0.8) !default;
+$slick-arrow-background: rgba(black, 0.8) !default;
+$slick-background: black !default;
 
-$slick-active-nav-dot-color: $tertiary       !default;
-$slick-nav-dot-color: $header_primary        !default;
-$slick-arrow-color: white                    !default;
+$slick-active-nav-dot-color: $tertiary !default;
+$slick-nav-dot-color: $header_primary !default;
+$slick-arrow-color: white !default;
 
-$slick-arrow-next: "\f105"                   !default;
-$slick-arrow-prev: "\f104"                   !default;
-$slick-arrow-size: 35px                      !default;
-$slick-nav-dot-size: 60px                    !default;
-$slick-nav-dot: "\b7"                        !default;
+$slick-arrow-next: "\f105" !default;
+$slick-arrow-prev: "\f104" !default;
+$slick-arrow-size: 35px !default;
+$slick-nav-dot-size: 60px !default;
+$slick-nav-dot: "\b7" !default;
 
 //------------------------------------------
 // Slick body and slides
@@ -56,7 +56,7 @@ $slick-nav-dot: "\b7"                        !default;
 
 	p:empty,
 	br,
-	>img {
+	> img {
 		display: none;
 	}
 
@@ -72,7 +72,6 @@ $slick-nav-dot: "\b7"                        !default;
 	.meta {
 		background: $slick-meta-background;
 	}
-
 }
 
 .slick-track {
@@ -80,10 +79,10 @@ $slick-nav-dot: "\b7"                        !default;
 	text-align: center;
 	display: flex;
 	align-items: center;
-	
-	>img {
-        width: auto !important;
-    }
+
+	> img {
+		width: auto !important;
+	}
 }
 
 //------------------------------------------
@@ -97,9 +96,9 @@ $slick-nav-dot: "\b7"                        !default;
 
 	&:before {
 		font: normal normal normal 14px/1 FontAwesome;
-        text-rendering: auto;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+		text-rendering: auto;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 		color: $slick-arrow-color;
 		font-size: $slick-arrow-size;
 		background: $slick-arrow-background;
@@ -109,35 +108,35 @@ $slick-nav-dot: "\b7"                        !default;
 
 .slick-next {
 	right: 0;
-	
+
 	&:before {
-	    content: $slick-arrow-next;
+		content: $slick-arrow-next;
 	}
 
 	[dir="rtl"] & {
 		right: auto;
 		left: 0;
-		
+
 		&:before {
-	        content: $slick-arrow-prev;
-	    }
+			content: $slick-arrow-prev;
+		}
 	}
 }
 
 .slick-prev {
 	left: 0;
-	
+
 	&:before {
-	    content: $slick-arrow-prev;
+		content: $slick-arrow-prev;
 	}
 
 	[dir="rtl"] & {
 		right: 0;
 		left: auto;
-	    	
+
 		&:before {
-	        content: $slick-arrow-next;
-	    }
+			content: $slick-arrow-next;
+		}
 	}
 }
 
@@ -145,7 +144,7 @@ $slick-nav-dot: "\b7"                        !default;
 // Slick navigation dots
 //------------------------------------------
 .cooked ul.slick-dots {
-		padding: 0;
+	padding: 0;
 }
 
 ul.slick-dots li button:before {
@@ -162,32 +161,31 @@ ul.slick-dots li button:before {
 // Hide before init
 //------------------------------------------
 div[data-theme-slick="1"]:not(.slick-initialized) {
-    display: none;
+	display: none;
 }
 
 .d-editor-preview div[data-theme-slick="1"],
 .slick-initialized {
-    display: block;
+	display: block;
 }
 
 //------------------------------------------
 // Editor preview
 //------------------------------------------
-#reply-control div[data-theme-slick="1"]>p {
-    border-left: 4px solid $tertiary;
-    padding-left: 2px;
-    margin-top: 2em;
+#reply-control div[data-theme-slick="1"] > p {
+	border-left: 4px solid $tertiary;
+	padding-left: 2px;
+	margin-top: 2em;
 
-
-	>img:not(.thumbnail) {
-    width: auto;
-    max-height: 110px;
-    margin: 2px;
+	> img:not(.thumbnail) {
+		width: auto;
+		max-height: 110px;
+		margin: 2px;
 	}
 }
 
 // Reset discourse default image max width
- .cooked .slick-initialized img:not(.thumbnail) {
-    max-width: 100%;
-    height: auto;
+.cooked .slick-initialized img:not(.thumbnail) {
+	max-width: 100%;
+	height: auto;
 }
