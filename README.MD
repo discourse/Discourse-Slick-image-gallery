@@ -1,6 +1,6 @@
 # Slick
 
-A theme component that creates responsive carousel galleries 
+A Discourse theme component that creates responsive carousel galleries 
 
 More information: 
 
