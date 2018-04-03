@@ -3,24 +3,17 @@ src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js">
 </script>
 
 <script type="text/discourse-plugin" version="0.8.18">
+
 //------------------------------------------
-// Fire script on topic pages
+// initialize slick
 //------------------------------------------
-api.onPageChange(url => {
-	d_slick = SlickGallery();
-	if (url.match(/^\/t\//)) {
-		SlickGallery();
-	} else {
-		$(document).unbind("ajaxSuccess", d_slick);
-	}
-});
-//------------------------------------------
-// Initilize Slick Carousel
-//------------------------------------------
-function SlickGallery() {
-	$(document).ajaxSuccess(function() {
-		var $d_tsc = $('#topic div[data-theme-slick="1"]').not(".slick-initialized");
-		$d_tsc.slick({
+var slick_selector = 'div[data-theme-slick="1"]';
+
+api.decorateCooked($elem =>
+	$elem
+		.children(slick_selector)
+		.not(".slick-initialized")
+		.slick({
 			dots: true,
 			infinite: true,
 			centerMode: true,
@@ -29,9 +22,9 @@ function SlickGallery() {
 			speed: 200,
 			fade: true,
 			cssEase: "linear"
-		});
-	});
-}
+		})
+);
+
 //------------------------------------------
 // Add a button to the composer toolbar
 //------------------------------------------
