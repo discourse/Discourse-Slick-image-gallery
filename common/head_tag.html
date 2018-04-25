@@ -3,6 +3,17 @@ src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js">
 </script>
 
 <script type="text/discourse-plugin" version="0.8.18">
+
+//------------------------------------------
+// I18n Translations
+//------------------------------------------
+$(document).ready(function() {
+I18n.translations.en.js.composer.slick_add_images_prompt =
+"Upload gallery images";
+I18n.translations.en.js.slick_gallery_button = 
+"Slideshow Image Gallery";
+});
+
 //------------------------------------------
 // initialize slick
 //------------------------------------------
@@ -43,11 +54,5 @@ api.onToolbarCreate(function(toolbar) {
 		}
 	});
 });
-//------------------------------------------
-// I18n Translations
-//------------------------------------------
-I18n.translations.en.js.composer.slick_add_images_prompt =
-"Upload gallery images";
-I18n.translations.en.js.slick_gallery_button = 
-"Slideshow Image Gallery";
+
 </script>
