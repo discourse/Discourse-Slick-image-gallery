@@ -1,0 +1,8 @@
+Slick_button_text:
+  default: "Image Gallery"
+  description:
+    en: Enter the text for the title of the button in the composer.
+Slick_add_images_prompt:
+  default: "Add images"
+  description:
+    en: Enter the placeholder text that appears in the composer after the user clicks the button.
