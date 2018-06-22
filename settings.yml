@@ -6,3 +6,7 @@ Slick_add_images_prompt:
   default: "Add images"
   description:
     en: Enter the placeholder text that appears in the composer after the user clicks the button.
+Slick_button_icon:
+  default: "picture-o"
+  description:
+    en: Choose an icon for the slick gallery button in the composer
