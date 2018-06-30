@@ -7,9 +7,9 @@ src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js">
 // I18n Translations
 //------------------------------------------
 $(document).ready(function() {
-  I18n.translations.en.js.composer.slick_add_images_prompt =
-    settings.Slick_add_images_prompt;
-  I18n.translations.en.js.slick_gallery_button = settings.Slick_button_text;
+  let currentLocale = I18n.currentLocale();
+  I18n.translations[currentLocale].js.composer.slick_add_images_prompt = settings.Slick_add_images_prompt;
+  I18n.translations[currentLocale].js.slick_gallery_button = settings.Slick_button_text;
 });
 
 //------------------------------------------
