@@ -239,10 +239,7 @@
   color: #000;
 }
 //------------------------------------------//
-
-//--------------------------------//
 //  Modifications for Discourse   //
-//--------------------------------//
 
 // Variables
 //------------------------------------------
@@ -372,6 +369,9 @@ ul.slick-dots li button:before {
 //------------------------------------------
 div[data-theme-slick="1"]:not(.slick-initialized) {
   display: none;
+  .lightbox-wrapper {
+    display: none;
+  }
 }
 
 .d-editor-preview div[data-theme-slick="1"],
