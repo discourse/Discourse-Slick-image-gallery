@@ -302,50 +302,40 @@ $slick-nav-dot: "\b7" !default;
   z-index: 1;
   height: $slick-arrow-size;
   width: round($slick-arrow-size * 0.75);
+  background: $slick-arrow-background;
+  opacity: 0.75;
 
   &:before {
-    font: normal normal normal 14px/1 FontAwesome;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    display: none;
+  }
+
+  svg {
     color: $slick-arrow-color;
-    font-size: $slick-arrow-size;
+    font-size: $slick-arrow-size * 0.6;
+  }
+
+  &:hover,
+  &:focus {
     background: $slick-arrow-background;
-    display: block;
+    opacity: 1;
   }
 }
 
 .slick-next {
   right: 0;
 
-  &:before {
-    content: $slick-arrow-next;
-  }
-
   [dir="rtl"] & {
     right: auto;
     left: 0;
-
-    &:before {
-      content: $slick-arrow-prev;
-    }
   }
 }
 
 .slick-prev {
   left: 0;
 
-  &:before {
-    content: $slick-arrow-prev;
-  }
-
   [dir="rtl"] & {
     right: 0;
     left: auto;
-
-    &:before {
-      content: $slick-arrow-next;
-    }
   }
 }
 
