@@ -9,4 +9,12 @@ Slick_add_images_prompt:
 Slick_button_icon:
   default: "picture-o"
   description:
-    en: Choose an icon for the slick gallery button in the composer
+    en: Choose an icon for the slick gallery button in the composer.
+Slick_prev_icon:
+  default: "chevron-left"
+  description:
+    en: Choose an icon for the slick previous button.
+Slick_next_icon:
+  default: "chevron-right"
+  description:
+    en: Choose an icon for the slick next button.
