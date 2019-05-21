@@ -12,11 +12,17 @@ const { iconHTML } = require("discourse-common/lib/icon-library");
 //------------------------------------------
 // I18n Translations
 //------------------------------------------
-let currentLocale = I18n.currentLocale();
-I18n.translations[currentLocale].js.composer.slick_add_images_prompt =
+let translations = I18n.translations[I18n.currentLocale()].js;
+if (!translations) {
+  translations = {};
+}
+if (!translations.composer) {
+  translations.composer = {};
+}
+
+translations.slick_gallery_button = settings.Slick_button_text;
+translations.composer.slick_add_images_prompt =
   settings.Slick_add_images_prompt;
-I18n.translations[currentLocale].js.slick_gallery_button =
-  settings.Slick_button_text;
 
 //------------------------------------------
 // initialize slick
@@ -36,8 +42,12 @@ api.decorateCooked($elem =>
       speed: 200,
       fade: true,
       cssEase: "linear",
-      prevArrow: `<button type='button' class='slick-prev'>${iconHTML(settings.Slick_prev_icon)}</button>`,
-      nextArrow: `<button type='button' class='slick-next'>${iconHTML(settings.Slick_next_icon)}</button>`
+      prevArrow: `<button type='button' class='slick-prev'>${iconHTML(
+        settings.Slick_prev_icon
+      )}</button>`,
+      nextArrow: `<button type='button' class='slick-next'>${iconHTML(
+        settings.Slick_next_icon
+      )}</button>`
     })
 );
 
@@ -60,4 +70,5 @@ api.onToolbarCreate(function(toolbar) {
     }
   });
 });
+
 </script>
