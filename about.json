@@ -1,6 +1,6 @@
 {
   "name": "Slick - Gallery Component",
   "about_url": "https://meta.discourse.org/t/slick-gallery-component/81952",
-  "license_url": "https://github.com/hnb-ku/Discourse-Slick-image-gallery/blob/master/LICENSE",
+  "license_url": "https://github.com/discourse/Discourse-Slick-image-gallery/blob/main/LICENSE",
   "component": true
 }
