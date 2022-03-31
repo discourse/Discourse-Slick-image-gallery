@@ -45,4 +45,7 @@ jobs:
 
       - name: Ember template lint
         if: ${{ always() }}
-        run: yarn ember-template-lint javascripts
+        run: |
+          if [ 0 -lt $(find javascripts -type f -name "*.hbs" 2> /dev/null | wc -l) ]; then
+            yarn ember-template-lint javascripts
+          fi
