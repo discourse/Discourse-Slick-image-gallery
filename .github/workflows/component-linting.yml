@@ -6,17 +6,22 @@ on:
       - main
   pull_request:
 
+concurrency:
+  group: plugin-linting-${{ format('{0}-{1}', github.head_ref || github.run_number, github.job) }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: 12
+          node-version: 16
+          cache: yarn
 
       - name: Yarn install
         run: yarn install
@@ -30,14 +35,17 @@ jobs:
         shell: bash
         run: |
           yarn prettier -v
-          shopt -s extglob
-          if ls @(javascripts|desktop|mobile|common|scss)/**/*.@(scss|js|es6) &> /dev/null; then
-            yarn prettier --list-different "@(javascripts|desktop|mobile|common|scss)/**/*.{scss,js,es6}"
+          files=$(find javascripts desktop mobile common scss -type f \( -name "*.scss" -or -name "*.js" -or -name "*.es6" \) 2> /dev/null) || true
+          if [ -n "$files" ]; then
+            yarn prettier --list-different $files
           fi
-          if ls test/**/*.@(js|es6) &> /dev/null; then
+          if [ 0 -lt $(find test -type f \( -name "*.js" -or -name "*.es6" \) 2> /dev/null | wc -l) ]; then
             yarn prettier --list-different "test/**/*.{js,es6}"
           fi
 
       - name: Ember template lint
         if: ${{ always() }}
-        run: yarn ember-template-lint javascripts
+        run: |
+          if [ 0 -lt $(find javascripts -type f -name "*.hbs" 2> /dev/null | wc -l) ]; then
+            yarn ember-template-lint javascripts
+          fi
